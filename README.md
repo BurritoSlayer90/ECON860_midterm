@@ -16,7 +16,9 @@ Contents:
       These characteristics include the user's name, follower count, and many other details. 
       The new csv is called "gitinfo.csv," and is saved in the parsedGitFiles folder. 
       It accesses the github api through an authenticated session. 
+      
       To do this, we create a .gitignore file and 2 files that store our username and token. 
+      
       These ^^ files are called ".gitignore," "username," and "token" respectively.
       We read them into variables in gitinfo.py to keep them hidden on github.
 4.	The folder "midtermHTML" contains the "names.html" file mentioned above
