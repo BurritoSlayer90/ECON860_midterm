@@ -85,7 +85,7 @@ for rows in range(len(nameList)):
 				'Follower Count': followers,
 				'Following Count': following,
 				#'Stars': starred,
-				'Reposts': repos,
+				'Public Repositories': repos,
 				'Name': name,
 				'Company': company,
 				'Blog': blog,
