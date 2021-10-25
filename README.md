@@ -11,7 +11,7 @@ Contents:
       The list is cleaned by removing duplicates before being saved as a csv, and results in a list of 640 ghid's. 
       It creates a folder called parsedGitFiles to store the csv. 
       The csv that will be created is called "midtermGHIDs.csv"
-3.	The python file 'gitinfo.py' is the most complex file: 
+3.	The python file 'githubinfo.py' is the most complex file: 
     	When ran, it accesses the github api to save the characteristics of the github users from midtermGHIDs.csv in a new csv. 
       These characteristics include the user's name, follower count, and many other details. 
       The new csv is called "gitinfo.csv," and is saved in the parsedGitFiles folder. 
