@@ -12,7 +12,7 @@ Contents:
       It creates a folder called parsedGitFiles to store the csv. 
       The csv that will be created is called "midtermGHIDs.csv"
 3.	The python file 'githubinfo.py' is the most complex file: 
-    	When ran, it accesses the github api to save the characteristics of the github users from midtermGHIDs.csv in a new csv. 
+    	When ran, it accesses the github api to save the characteristics of the github users from midtermGHIDs.csv in a new csv.
       These characteristics include the user's name, follower count, and many other details. 
       The new csv is called "gitinfo.csv," and is saved in the parsedGitFiles folder. 
       It accesses the github api through an authenticated session. 
@@ -21,7 +21,7 @@ Contents:
       We also have a .gitignore file that tells github to not show those files, as they are sensitive information.
       
       These ^^ files are called ".gitignore," "username," and "token" respectively.
-      We read them into variables in gitinfo.py to keep them hidden on github.
+      We read them into variables in githubinfo.py to keep them hidden on github.
 4.	The folder "midtermHTML" contains the "names.html" file mentioned above
 5.	The folder "parsedGitFiles contains the "midtermGHIDs.csv" and "gitinfo.csv" files mentioned above.
 6.	The .gitignore, token, and username files are described in 3
