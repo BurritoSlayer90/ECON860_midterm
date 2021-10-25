@@ -38,6 +38,7 @@ for rows in range(len(nameList)):
 		result = json.loads(github_session.get(user_url).text)
 
 		#saving the necessary data from result to variables 
+		#I printed them all to make sure they work
 		gitid = result['id']
 		print(gitid)
 		avurl = result['avatar_url']
@@ -46,6 +47,8 @@ for rows in range(len(nameList)):
 		print(url)
 		followers = result['followers']
 		print(followers)
+		following = result['following']
+		print(following)
 		#starred needs work...
 		#starred = github_session.get(user_url + "/starred").text
 		#print(starred)
@@ -80,6 +83,7 @@ for rows in range(len(nameList)):
 				'Avatar URL':avurl,
 				'URL': url,
 				'Follower Count': followers,
+				'Following Count': following,
 				#'Stars': starred,
 				'Reposts': repos,
 				'Name': name,
