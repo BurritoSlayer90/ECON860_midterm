@@ -2,7 +2,7 @@ import json
 import requests
 import pandas
 import csv
-#this file completes 1e, 1f, and 1g
+#this file completes 1e,(1f), and 1g
 
 #the dataframe we will use to create our csv
 df = pandas.DataFrame()
@@ -16,39 +16,28 @@ f = open("username","r")
 username = f.read()
 f.close()
 
+#this creates an authenticated session so we can access github enough times to complete the project
 github_session = requests.Session()
 github_session.auth = (username, token)
 
-
-
 #importing our list of names for further manipulation
 nameList = list(csv.reader(open("parsedGitFiles/midtermGHIDs.csv")))
-#curname = nameList[2][0]
-#print(curname)
 
+#access point is the base url to access the github api
 access_point = "https://api.github.com"
 
-#result = json.loads(github_session.get(user_url).text)
-#print(result)
-print("test")
-
-#need to figure out how to access with credentials!!
-#read the namelist csv
-#for rows in range(len(nameList)):
-#print("test?")
-
-
-
+#we run a for loop for every ghid in our nameList to get the data we want for 1e
 for rows in range(len(nameList)):
 	#the first row has ghid and not a name, so we ignore it...
 	if rows > 0:
+		#idString saves the current ghid from nameList 
 		idString = nameList[rows][0]
-		print(idString)
+		#we add idString to our url to access their information from the github API
 		user_url = access_point + "/users/" + idString
+		#result has all the information we need. Except number of starred, which takes more work
 		result = json.loads(github_session.get(user_url).text)
-		print(result)
-		#print(result['public_repos'])
 
+		#saving the necessary data from result to variables 
 		gitid = result['id']
 		print(gitid)
 		avurl = result['avatar_url']
@@ -57,7 +46,7 @@ for rows in range(len(nameList)):
 		print(url)
 		followers = result['followers']
 		print(followers)
-		#fuck starred omfg
+		#starred needs work...
 		#starred = github_session.get(user_url + "/starred").text
 		#print(starred)
 		repos = result['public_repos']
@@ -74,6 +63,8 @@ for rows in range(len(nameList)):
 		print(email)
 		hireable = result['hireable']
 		print(hireable)
+		bio = result['bio']
+		print(bio)
 		created = result['created_at']
 		print(created)
 		update = result['updated_at']
@@ -82,7 +73,9 @@ for rows in range(len(nameList)):
 		#for the bonus, I can sort repositiories by starred and get the user's most popular repository. 
 		#a column for "most popular" or sum
 
+		#this code adds all the data we collected from 'result' into our data frame to satisfy 1e
 		df = df.append({
+				'GHID': idString,
 				'ID': gitid,
 				'Avatar URL':avurl,
 				'URL': url,
@@ -94,7 +87,8 @@ for rows in range(len(nameList)):
 				'Blog': blog,
 				'Location': location,
 				'Email': email,
-				'Hired Time': hireable,
+				'Hireable': hireable,
+				'Bio': bio,
 				'Created At': created,
 				'Last Update': update
 				}, ignore_index = True
