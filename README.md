@@ -34,5 +34,5 @@ Instructions for running the program:
 4.	You will want to create two files called "username" and "token" that store your github username and API token respectively. 
 5.	Using the command module, run the first file, listdownloader.py: python listdownloader.py (Enter)
 6.	Next, run the second file, listmaker.py: python listmaker.py (Enter)
-7.	Finally, run the third file, gitinfo.py: python gitinfo.py (Enter)
+7.	Finally, run the third file, gitinfo.py: python githubinfo.py (Enter)
 8.	Now, if you open the folder "parsedGitFiles," there will be a file called "gitinfo.csv." This is the final output of the code. Enjoy!
