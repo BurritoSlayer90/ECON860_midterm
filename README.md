@@ -11,9 +11,11 @@ Contents:
       The list is cleaned by removing duplicates before being saved as a csv, and results in a list of 640 ghid's. 
       It creates a folder called parsedGitFiles to store the csv. 
       The csv that will be created is called "midtermGHIDs.csv"
-3.	The python file 'githubinfo.py' is the most complex file: 
+3.    The python file repositoryInfo.py takes the names of github users from midtermGHIDs.csv and outputs each user's most starred repository in the file gitinfo.csv. This is used to satisfy the bonus on the midterm.
+4.	The python file 'githubinfo.py' is the most complex file: 
     	When ran, it accesses the github api to save the characteristics of the github users from midtermGHIDs.csv in a new csv.
       These characteristics include the user's name, follower count, and many other details. 
+      It also includes information about the users' top repositories from repoList.csv
       The new csv is called "gitinfo.csv," and is saved in the parsedGitFiles folder. 
       It accesses the github api through an authenticated session. 
       
@@ -22,9 +24,9 @@ Contents:
       
       These ^^ files are called ".gitignore," "username," and "token" respectively.
       We read them into variables in githubinfo.py to keep them hidden on github.
-4.	The folder "midtermHTML" contains the "names.html" file mentioned above
-5.	The folder "parsedGitFiles contains the "midtermGHIDs.csv" and "gitinfo.csv" files mentioned above.
-6.	The .gitignore, token, and username files are described in 3
+5.	The folder "midtermHTML" contains the "names.html" file mentioned above
+6.	The folder "parsedGitFiles contains the "midtermGHIDs.csv," "gitinfo.csv," and "repoList.csv" files mentioned above.
+7.	The .gitignore, token, and username files are described in 3
 
 Instructions for running the program:
 
@@ -34,5 +36,7 @@ Instructions for running the program:
 4.	You will want to create two files called "username" and "token" that store your github username and API token respectively. 
 5.	Using the command module, run the first file, listdownloader.py: python listdownloader.py (Enter)
 6.	Next, run the second file, listmaker.py: python listmaker.py (Enter)
-7.	Finally, run the third file, gitinfo.py: python githubinfo.py (Enter)
-8.	Now, if you open the folder "parsedGitFiles," there will be a file called "gitinfo.csv." This is the final output of the code. Enjoy!
+7.	Then run the third file, repositoryInfo.py: python repositoryInfo.py (Enter)
+      -Note: this step takes nearly 2 hours to access the site without the website blocking you. Plan to let your             computer run on a solid internet connection for that time.
+8.	Finally, run the fourth file, gitinfo.py: python githubinfo.py (Enter)
+9.	Now, if you open the folder "parsedGitFiles," there will be a file called "gitinfo.csv." This is the final output of the code. Enjoy!
