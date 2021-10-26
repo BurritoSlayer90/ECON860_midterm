@@ -22,6 +22,8 @@ github_session.auth = (username, token)
 
 #importing our list of names for further manipulation
 nameList = list(csv.reader(open("parsedGitFiles/midtermGHIDs.csv")))
+#importing the list of top repositories for users
+topRepos = list(csv.reader(open("parsedGitFiles/repoList.csv")))
 
 #access point is the base url to access the github api
 access_point = "https://api.github.com"
@@ -73,8 +75,40 @@ for rows in range(len(nameList)):
 		update = result['updated_at']
 		print(update)
 
-		#for the bonus, I can sort repositiories by starred and get the user's most popular repository. 
-		#a column for "most popular" or sum
+		#bonus
+		repo = topRepos[rows][0]
+		print(repo)
+
+		#this url allows us to access the user's top repository info with the api
+		repo_url = access_point + "/repos/" + idString + "/" + repo
+		#we save the data from that webpage to result
+		result = json.loads(github_session.get(repo_url).text)
+
+		#we don't want to try to store data for users with no repositories
+		if repo == "":
+			stars = ""
+			repoURL = ""
+			language = ""
+			wiki = ""
+			size = ""
+			repoCreated = ""
+			repoUpdated = ""
+		else:
+			#we save the following variables from result to give useful information about the repository
+			stars = result['stargazers_count']
+			print(stars)
+			repoURL = result['url']
+			print(url)
+			language = result['language']
+			print(language)
+			wiki = result['has_wiki']
+			print(wiki)
+			size = result['size']
+			print(size)
+			repoCreated = result['created_at']
+			print(created)
+			repoUpdated = result['updated_at']
+			print(repoUpdated)
 
 		#this code adds all the data we collected from 'result' into our data frame to satisfy 1e
 		df = df.append({
@@ -94,7 +128,15 @@ for rows in range(len(nameList)):
 				'Hireable': hireable,
 				'Bio': bio,
 				'Created At': created,
-				'Last Update': update
+				'Last Update': update,
+				'Top Repository': repo,
+				'Repository Stargazers': stars,
+				'Repo URL': repoURL,
+				'Repo Language': language,
+				'Has Wiki': wiki,
+				'Repo Size': size,
+				'Repo Created At': repoCreated,
+				'Repo Update At': repoUpdated
 				}, ignore_index = True
 				)
 #saving the data to a csv, this satisfies 1g
