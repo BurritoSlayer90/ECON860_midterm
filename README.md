@@ -35,8 +35,17 @@ Instructions for running the program:
 3.	Navigate to the proagram folder through the command module. If you saved to desktop(recommended) it should look like this: cd Desktop (Enter) cd ECON860_midterm (Enter)
 4.	You will want to create two files called "username" and "token" that store your github username and API token respectively. 
 5.	Using the command module, run the first file, listdownloader.py: python listdownloader.py (Enter)
+      This will create the names.html file
 6.	Next, run the second file, listmaker.py: python listmaker.py (Enter)
+      This will create the midtermGHIDs.csv file
 7.	Then run the third file, repositoryInfo.py: python repositoryInfo.py (Enter)
-      -Note: this step takes nearly 2 hours to access the site without the website blocking you. Plan to let your             computer run on a solid internet connection for that time.
+      -Note: this step takes nearly 2 hours to access the site without the website blocking you. Plan to let your computer run uninterrupted, on a solid internet connection for that time.
+      This will create the repoList.csv file
 8.	Finally, run the fourth file, gitinfo.py: python githubinfo.py (Enter)
+      This will create the gitinfo.csv file
 9.	Now, if you open the folder "parsedGitFiles," there will be a file called "gitinfo.csv." This is the final output of the code. Enjoy!
+
+Limitations:
+1.    I was not able to extract the 'number of starred' data for probllem 1e, so that is not included.
+2.    A small number of cells show "1.0" instead of "True." These include the first value in the "hireable" column and the first two in "Has Wiki."
+      I do not understrand why this is. I believe it to be a glitch. 
