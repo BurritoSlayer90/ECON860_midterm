@@ -47,5 +47,5 @@ Instructions for running the program:
 
 Limitations:
 1.    I was not able to extract the 'number of starred' data for probllem 1e, so that is not included.
-2.    A small number of cells show "1.0" instead of "True." These include the first value in the "hireable" column and the first two in "Has Wiki."
+2.    A small number of cells show "1.0" instead of "True" in the gitinfo.csv file. These include the first value in the "hireable" column and the first two in "Has Wiki."
       I do not understrand why this is. I believe it to be a glitch. 
